@@ -1,0 +1,22 @@
+{
+  "name": "Part-2",
+  "version": "1.0.0",
+  "description": "Command Line Grocery Store",
+  "main": "store.js",
+  "devDependencies": {
+    "chai": "^4.1.1",
+    "mocha": "^3.5.0"
+  },
+  "dependencies": {
+    "pg-promise": "^6.5.1"
+  },
+  "scripts": {
+    "test": "mocha database_test.js",
+    "db:create": "dropdb --if-exists grocery_store && createdb grocery_store",
+    "db:schema": "psql grocery_store < schema.sql",
+    "db:insert": "psql grocery_store < load-data.sql",
+    "start": "npm run db:create && npm run db:schema && npm run db:insert"
+  },
+  "author": "Jacky Bouier",
+  "license": "MIT",
+}
