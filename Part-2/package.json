@@ -18,5 +18,5 @@
     "start": "npm run db:create && npm run db:schema && npm run db:insert"
   },
   "author": "Jacky Bouier",
-  "license": "MIT",
+  "license": "MIT"
 }
