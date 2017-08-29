@@ -15,6 +15,8 @@ function addToCartCount(){
 var modal = document.getElementById("popUp");
 var cartButton = document.getElementById("cart-button");
 cartButton.onclick = function() {
+  var grandTotal = document.querySelector('.modal .modal-footer .total-price');
+  grandTotal.innerText = '$ ' + calcTotalPrice();
     modal.style.display = "block";
      cartItemList()
 }
@@ -27,11 +29,16 @@ var cartItems = []
 var itemsPrice = []
 
 
-function addToCart(item, price) {
-  cartItems.push(item)
-  itemsPrice.push('$' + price)
+function calcTotalPrice() {
+  return itemsPrice.reduce(function (sum, price) {
+    return sum + price;
+  }, 0)
 }
 
+function addToCart(item, price) {
+  cartItems.push(item)
+  itemsPrice.push(price)
+}
 
 function cartItemList() {
   document.getElementsByClassName('itemInCart')[0].innerHTML = ''
@@ -43,7 +50,7 @@ function cartItemList() {
     var modalItem = document.createElement('li')
     var modalPrice = document.createElement('li')
     modalItem.innerText = cartItems[i]
-    modalPrice.innerText = itemsPrice[i]
+    modalPrice.innerText = '$' + itemsPrice[i]
     itemInCart.appendChild(modalItem)
     ItemPriceInCart.appendChild(modalPrice)
   }
