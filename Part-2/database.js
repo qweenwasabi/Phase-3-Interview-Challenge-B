@@ -13,9 +13,14 @@ function givenShopper(item){
                   INNER JOIN grocery_items ON grocery_items.id = order_list.grocery_id
                   WHERE orders.shopper_id = $1 GROUP BY orders.id;`), [item]);
 }
+function activeShoppers(){
+  return db.any(`SELECT shoppers.name as shopper_name, COUNT(*) AS number_of_orders FROM shoppers
+                  INNER JOIN orders ON shoppers.id = orders.shopper_id GROUP BY shoppers.name ORDER BY COUNT(*) ASC;`)
+}
 
-
+//check out givenshopper function on second innerjoin
 module.exports = {
   products,
-  givenShopper
+  givenShopper,
+  activeShoppers
 }

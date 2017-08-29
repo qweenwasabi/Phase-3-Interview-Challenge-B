@@ -27,4 +27,17 @@ if (process.argv[2] === "product-list") {
 }
   )
   .catch(function(error) {return console.log(error)});
+} else if(process.argv[2] === "real-shoppers") {
+  database.activeShoppers()
+  .then(
+    function(shopperResults) {
+      console.log("Shopper Name | Number of Orders");
+      for (k = 0; k < shopperResults.length; k++){
+        console.log(shopperResults[k].shopper_name + " | " +
+          shopperResults[k].number_of_orders);
+    }
+    process.exit(0);
+  }) .catch(function(error) {return console.log(error)});
+} else {
+  console.log("Command doesn't exist!! Commands are product-list (category), shopper-orders (shopper_id), and real-shoppers");
 }
