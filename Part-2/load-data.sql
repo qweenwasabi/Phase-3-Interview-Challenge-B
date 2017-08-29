@@ -21,7 +21,7 @@ INSERT INTO orders (shopper_id) VALUES (4);
 INSERT INTO orders (shopper_id) VALUES (5);
 INSERT INTO orders (shopper_id) VALUES (6);
 INSERT INTO orders (shopper_id) VALUES (6);
-INSERT INTO orders (shopper_id) VALUES (6);
+INSERT INTO orders (shopper_id) VALUES (2);
 
 
 INSERT INTO order_list (grocery_id, order_id) VALUES (38, 1);

@@ -14,4 +14,17 @@ if (process.argv[2] === "product-list") {
       }
     )
     .catch(function(error) {return console.log(error)});
+} else if(process.argv[2] === "shopper-orders") {
+  database.givenShopper(process.argv[3])
+  .then(
+    function(orderResults) {
+    console.log("Order ID | Total Cost");
+  for (j = 0; j < orderResults.length; j++){
+    console.log(orderResults[j].id + " | " +
+      orderResults[j].total_cost);
+  }
+  process.exit(0);
+}
+  )
+  .catch(function(error) {return console.log(error)});
 }
