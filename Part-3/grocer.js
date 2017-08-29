@@ -31,7 +31,7 @@ var itemsPrice = []
 
 function calcTotalPrice() {
   return itemsPrice.reduce(function (sum, price) {
-    return sum + price;
+    return Math.round((sum + price)*100)/100;
   }, 0)
 }
 
