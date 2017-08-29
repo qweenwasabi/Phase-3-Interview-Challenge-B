@@ -20,5 +20,5 @@ CREATE TABLE order_list (
   grocery_id SERIAL,
   order_id SERIAL,
   FOREIGN KEY (grocery_id) REFERENCES grocery_items(id),
-  FOREIGN KEY (order_id) REFERENCES ORDERS(id)
+  FOREIGN KEY (order_id) REFERENCES orders(id)
 );
