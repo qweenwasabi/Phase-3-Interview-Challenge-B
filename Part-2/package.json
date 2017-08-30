@@ -15,8 +15,11 @@
     "db:create": "dropdb --if-exists grocery_store && createdb grocery_store",
     "db:schema": "psql grocery_store < schema.sql",
     "db:insert": "psql grocery_store < load-data.sql",
-    "start": "npm run db:create && npm run db:schema && npm run db:insert"
+    "start": "npm run db:create && npm run db:schema && npm run db:insert && npm link"
   },
   "author": "Jacky Bouier",
-  "license": "MIT"
+  "license": "MIT",
+  "bin": {
+    "store": "./store.js"
+  }
 }
