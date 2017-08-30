@@ -1,14 +1,14 @@
 var cart = document.getElementById("cart-item-count");
 var cartNumber = cart.textContent;
-var sliceNumber = cartNumber.slice(1,2);
+var sliceNumber = cartNumber.slice(1, 2);
 
 
 
 var plus1 = Number(sliceNumber);
 
-function addToCartCount(){
-   plus1++;
-   cart.textContent = "("+ plus1 + ")"
+function addToCartCount() {
+  plus1++;
+  cart.textContent = "(" + plus1 + ")"
   return plus1;
 }
 
@@ -17,12 +17,12 @@ var cartButton = document.getElementById("cart-button");
 cartButton.onclick = function() {
   var grandTotal = document.querySelector('.modal .modal-footer .total-price');
   grandTotal.innerText = '$ ' + calcTotalPrice();
-    modal.style.display = "block";
-     cartItemList()
+  modal.style.display = "block";
+  cartItemList()
 }
 var exit = document.getElementsByClassName("close")[0];
 exit.onclick = function() {
-    modal.style.display = "none";
+  modal.style.display = "none";
 }
 
 var cartItems = []
@@ -30,8 +30,8 @@ var itemsPrice = []
 
 
 function calcTotalPrice() {
-  return itemsPrice.reduce(function (sum, price) {
-    return Math.round((sum + price)*100)/100;
+  return itemsPrice.reduce(function(sum, price) {
+    return Math.round((sum + price) * 100) / 100;
   }, 0)
 }
 
