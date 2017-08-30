@@ -42,7 +42,6 @@ api.post('/api/array/concat', (req, res) => {
       "result": array1.concat(array2)
     });
   } else {
-    console.log(typeof array1, 'array 1');
     res.status(400).send({
       "error": "Input data should be of type Array."
     });
